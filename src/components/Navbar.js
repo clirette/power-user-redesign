@@ -58,6 +58,7 @@ const Brand = styled.h1`
   letter-spacing: 0.3rem;
   margin-left: 2rem;
   color: #fff;
+  display: inline;
 `
 
 const NavLinksContainer = styled.nav`
@@ -79,7 +80,7 @@ const collapsedNavContainerStyles = {
   display: "flex",
   backgroundColor: "#660066",
   flexDirection: "column",
-  alignItems: "end",
+  alignItems: "start",
   paddingLeft: "1rem",
   active: { color: "#fff" },
   link: { paddingTop: ".5rem", paddingBottom: ".5rem", fontSize: "1.8rem" },

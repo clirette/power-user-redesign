@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react"
+import React, { useState, Fragment } from "react"
 import { Link as GatsbyLink } from "gatsby"
 import styled from "styled-components"
 
@@ -118,40 +118,27 @@ const NavLinks = props => (
   </NavLinksContainer>
 )
 
-class Navbar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { menuExpanded: false }
-  }
+const Navbar = () => {
+  const [menuExpanded, setMenuExpanded] = useState(false)
 
-  handleHamburgerClick = e => {}
-
-  render() {
-    return (
-      <Fragment>
-        <StyledNavbar>
-          <BrandContainer>
-            <Link to="/">
-              <Brand>Power User</Brand>
-            </Link>
-          </BrandContainer>
-          <Hamburger
-            onClick={() =>
-              this.setState({ menuExpanded: !this.state.menuExpanded })
-            }
-          >
-            <HamburgerLines></HamburgerLines>
-            <HamburgerLines></HamburgerLines>
-            <HamburgerLines></HamburgerLines>
-          </Hamburger>
-          {!this.state.menuExpanded && <NavLinks />}
-        </StyledNavbar>
-        {this.state.menuExpanded && (
-          <NavLinks display={collapsedNavContainerStyles} />
-        )}
-      </Fragment>
-    )
-  }
+  return (
+    <Fragment>
+      <StyledNavbar>
+        <BrandContainer>
+          <Link to="/">
+            <Brand>Power User</Brand>
+          </Link>
+        </BrandContainer>
+        <Hamburger onClick={() => setMenuExpanded(!menuExpanded)}>
+          <HamburgerLines></HamburgerLines>
+          <HamburgerLines></HamburgerLines>
+          <HamburgerLines></HamburgerLines>
+        </Hamburger>
+        {!menuExpanded && <NavLinks />}
+      </StyledNavbar>
+      {menuExpanded && <NavLinks display={collapsedNavContainerStyles} />}
+    </Fragment>
+  )
 }
 
 export default Navbar

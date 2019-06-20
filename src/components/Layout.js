@@ -26,24 +26,30 @@ const Layout = props => {
 
   return (
     <Fragment>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>
-          Power User{props.pageTitle ? ` | ${props.pageTitle}` : ""}
-        </title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap"
-          rel="stylesheet"
-        />
-        <meta
-          name="viewport"
-          content="width=device-width,height=device-height,initial-scale=1.0"
-        />
-      </Helmet>
-      <GlobalStyle />
-      <Normalize />
-      <Navbar />
-      {isLoading ? "Loading..." : props.children}
+      {isLoading ? (
+        "Loading..."
+      ) : (
+        <Fragment>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>
+              Power User{props.pageTitle ? ` | ${props.pageTitle}` : ""}
+            </title>
+            <link
+              href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap"
+              rel="stylesheet"
+            />
+            <meta
+              name="viewport"
+              content="width=device-width,height=device-height,initial-scale=1.0"
+            />
+          </Helmet>
+          <GlobalStyle />
+          <Normalize />
+          <Navbar />
+          props.children
+        </Fragment>
+      )}
     </Fragment>
   )
 }

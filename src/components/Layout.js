@@ -47,7 +47,7 @@ const Layout = props => {
           <GlobalStyle />
           <Normalize />
           <Navbar />
-          props.children
+          {props.children}
         </Fragment>
       )}
     </Fragment>

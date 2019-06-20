@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useState, useEffect } from "react"
 import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import styled, { createGlobalStyle } from "styled-components"
@@ -18,6 +18,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = props => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setIsLoading(false)
+  })
+
   return (
     <Fragment>
       <Helmet>
@@ -37,7 +43,7 @@ const Layout = props => {
       <GlobalStyle />
       <Normalize />
       <Navbar />
-      {props.children}
+      {isLoading ? "Loading..." : props.children}
     </Fragment>
   )
 }

@@ -22,7 +22,9 @@ const Layout = props => {
     <Fragment>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Power User</title>
+        <title>
+          Power User{props.pageTitle ? ` | ${props.pageTitle}` : ""}
+        </title>
         <link
           href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap"
           rel="stylesheet"

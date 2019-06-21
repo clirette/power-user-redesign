@@ -1,0 +1,26 @@
+.dropdown-enter {
+  transform: scaleY(0);
+  display: flex !important;
+}
+.dropdown-enter-active {
+  transform: scaleY(1);
+  display: flex !important;
+  transition: transform .3s;
+  transform-origin: top center;
+}
+.dropdown-enter-done {
+  display: flex !important;
+}
+.dropdown-exit {
+  transform: scaleY(1);
+  display: flex !important;
+}
+.dropdown-exit-active {
+  transform: scaleY(0);
+  display: flex !important;
+  transition: transform .3s;
+  transform-origin: top center;
+}
+.dropdown-exit-done {
+  display: none !important;
+}

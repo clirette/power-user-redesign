@@ -1,8 +1,10 @@
 import React, { useState, Fragment } from "react"
 import { Link as GatsbyLink } from "gatsby"
 import styled from "styled-components"
+import { CSSTransition } from "react-transition-group"
 
 import devices from "../utils/devices"
+import "../css/animations.css"
 
 const NavbarContainer = styled.div`
   position: relative;
@@ -81,7 +83,7 @@ const active = {
 }
 
 const collapsedNavContainerStyles = {
-  display: "flex",
+  display: "none",
   backgroundColor: "#4d004d",
   flexDirection: "column",
   alignItems: "start",
@@ -132,7 +134,6 @@ const NavLinks = props => (
 
 const Navbar = () => {
   const [menuExpanded, setMenuExpanded] = useState(false)
-
   return (
     <NavbarContainer>
       <StyledNavbar>
@@ -148,7 +149,9 @@ const Navbar = () => {
         </Hamburger>
         {!menuExpanded && <NavLinks />}
       </StyledNavbar>
-      {menuExpanded && <NavLinks display={collapsedNavContainerStyles} />}
+      <CSSTransition in={menuExpanded} timeout={300} classNames="dropdown">
+        <NavLinks display={collapsedNavContainerStyles} />
+      </CSSTransition>
     </NavbarContainer>
   )
 }

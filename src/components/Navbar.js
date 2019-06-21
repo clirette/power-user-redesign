@@ -4,6 +4,10 @@ import styled from "styled-components"
 
 import devices from "../utils/devices"
 
+const NavbarContainer = styled.div`
+  position: relative;
+`
+
 const StyledNavbar = styled.div`
   height: 10vh;
   background-color: #660066;
@@ -78,12 +82,19 @@ const active = {
 
 const collapsedNavContainerStyles = {
   display: "flex",
-  backgroundColor: "#660066",
+  backgroundColor: "#4d004d",
   flexDirection: "column",
   alignItems: "start",
-  paddingLeft: "1rem",
+  position: "absolute",
+  width: "100%",
+  borderTop: ".1rem solid #ddd",
   active: { color: "#fff" },
-  link: { paddingTop: ".5rem", paddingBottom: ".5rem", fontSize: "1.8rem" },
+  link: {
+    paddingTop: ".5rem",
+    paddingBottom: ".5rem",
+    paddingLeft: "1rem",
+    fontSize: "1.8rem",
+  },
 }
 
 const NavLinks = props => (
@@ -123,7 +134,7 @@ const Navbar = () => {
   const [menuExpanded, setMenuExpanded] = useState(false)
 
   return (
-    <Fragment>
+    <NavbarContainer>
       <StyledNavbar>
         <BrandContainer>
           <Link to="/">
@@ -138,7 +149,7 @@ const Navbar = () => {
         {!menuExpanded && <NavLinks />}
       </StyledNavbar>
       {menuExpanded && <NavLinks display={collapsedNavContainerStyles} />}
-    </Fragment>
+    </NavbarContainer>
   )
 }
 

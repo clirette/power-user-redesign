@@ -6,6 +6,11 @@ import { Normalize } from "styled-normalize"
 import Navbar from "./Navbar"
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
   html {
     font-size: 62.5%;
   }
